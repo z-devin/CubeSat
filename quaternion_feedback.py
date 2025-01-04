@@ -218,19 +218,19 @@ def simulate_and_animate():
     q_desired = np.array([0.0, 0.0, 0.0, 1.0])
     
     # Disturbance parameters (arbitrary for now)
-    r = np.array([7000e3, 0, 0])  # Position vector from Earth's center to satellite (m)
-    r_cp_s = np.array([0.1, 0, 0])  # Center of pressure for solar radiation (m)
-    A_s = 0.01  # Cross-sectional area for solar radiation (m²)
-    C_r = 1.5  # Reflectivity coefficient
-    n_hat = np.array([1, 0, 0])  # Surface normal vector (aligned with x-axis)
+    r = np.array([7000e3, 0, 0])            # Position vector from Earth's center to satellite (m)
+    r_cp_s = np.array([0.1, 0, 0])          # Center of pressure for solar radiation (m)
+    A_s = 0.01                              # Cross-sectional area for solar radiation (m²)
+    C_r = 1.5                               # Reflectivity coefficient
+    n_hat = np.array([1, 0, 0])             # Surface normal vector (aligned with x-axis)
     sun_vector = np.array([1.0, 0.5, 0.2])  # Arbitrary Sun direction vector
 
-    r_cp_a = np.array([0.1, 0.1, 0])  # Center of pressure for atmospheric drag (m)
-    rho = 1e-12  # Atmospheric density (kg/m³)
-    v = 7500.0  # Velocity magnitude relative to atmosphere (m/s)
-    C_d = 2.2  # Drag coefficient
-    A_a = 0.01  # Cross-sectional area for atmospheric drag (m²)
-    v_hat = np.array([1, 0, 0])  # Velocity direction unit vector
+    r_cp_a = np.array([0.1, 0.1, 0])        # Center of pressure for atmospheric drag (m)
+    rho = 1e-12                             # Atmospheric density (kg/m³)
+    v = 7500.0                              # Velocity magnitude relative to atmosphere (m/s)
+    C_d = 2.2                               # Drag coefficient
+    A_a = 0.01                              # Cross-sectional area for atmospheric drag (m²)
+    v_hat = np.array([1, 0, 0])             # Velocity direction unit vector
 
     # Simulation time
     t = np.linspace(0, 50, 2000)
