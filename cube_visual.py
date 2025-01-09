@@ -61,10 +61,10 @@ class CubeVisualizer:
             
             self.ax.plot_wireframe(x, y, z, color='blue')
 
-        origin = np.array([0, 0, 0])  # Origin
-        local_x = R @ np.array([1.5, 0, 0])  # Local x-axis
-        local_y = R @ np.array([0, 1.5, 0])  # Local y-axis
-        local_z = R @ np.array([0, 0, 1.5])  # Local z-axis
+        origin = np.array([0, 0, 0])  # origin
+        local_x = R @ np.array([1.5, 0, 0])  # local x-axis
+        local_y = R @ np.array([0, 1.5, 0])  # local y-axis
+        local_z = R @ np.array([0, 0, 1.5])  # local z-axis
 
         self.ax.quiver(*origin, *local_x, color='red', label='Local X', arrow_length_ratio=0.1)
         self.ax.quiver(*origin, *local_y, color='green', label='Local Y', arrow_length_ratio=0.1)

@@ -86,19 +86,3 @@ class QuaternionController:
         # Total Disturbance Torque
         disturbance_torques = T_gravity + T_solar + T_drag
         return disturbance_torques
-
-    def system_dynamics(self, state, t, M, disturbance_torques):
-        q = state[:4]
-        omega = state[4:]
-        
-        q_dot = 0.5 * np.array([
-            q[3]*omega[0] - q[2]*omega[1] + q[1]*omega[2],
-            q[2]*omega[0] + q[3]*omega[1] - q[0]*omega[2],
-            -q[1]*omega[0] + q[0]*omega[1] + q[3]*omega[2],
-            -q[0]*omega[0] - q[1]*omega[1] - q[2]*omega[2]
-        ])
-        
-        J_inv = np.linalg.inv(self.J)
-        omega_dot = J_inv @ (M + disturbance_torques - np.cross(omega, self.J @ omega))
-        
-        return np.concatenate([q_dot, omega_dot])

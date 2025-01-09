@@ -1,19 +1,23 @@
 import numpy as np
+import time
 
 class Context:
     def __init__(self):
+        # Earth's magnetic field
+        self.B = np.array([25e-6, -20e-6, 15e-6])
+
         # Attitude and angular velocity
         self.q_current = np.array([0.3, 0.2, 0.1, 0.927])  # Initial quaternion
         self.q_current = self.q_current / np.linalg.norm(self.q_current)
-        self.omega_current = np.array([0.1, -0.1, 0.1])    # Initial angular velocity
+        self.omega_current = np.array([0.1, 0.1, 0.1])     # Initial angular velocity
         
         # Desired orientation
         self.q_desired = np.array([0.0, 0.0, 0.0, 1.0])
         
         # Inertia and control gains
-        self.J = np.diag([100, 150, 80])                   # Inertia matrix
-        self.Kp = 150.0                                    # Proportional gain
-        self.Kd = 100.0                                    # Derivative gain
+        self.J = np.diag([0.008, 0.008, 0.010])            # Inertia matrix
+        self.Kp = 0.006                                    # Proportional gain
+        self.Kd = 0.007                                    # Derivative gain
 
         # Disturbance parameters
         self.r = np.array([7000e3, 0, 0])                  # Position vector from Earth's center
