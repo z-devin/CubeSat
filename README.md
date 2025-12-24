@@ -1,3 +1,5 @@
+![CubeSat ADCS Box V2](ADCS_Box_V2.png)
+
 https://cubesat.cooper.edu
 
 The InkSat, our current project, aims to explore the effectiveness of e-paper as a potential thermal controller for small satellites. 
